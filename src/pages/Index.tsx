@@ -135,7 +135,7 @@ export default function Index() {
               С месяцем общения!
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 font-rubik">
-              Если ты дошёл до конца, пришли мне фото сверчка 🦗
+              Если ты дошла до конца, пришли мне фото сверчка 🦗
             </p>
             <div className="flex justify-center gap-2 pt-4">
               <Icon name="Cookie" size={32} className="text-orange-400" />
