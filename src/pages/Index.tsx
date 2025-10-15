@@ -8,51 +8,61 @@ const messages = [
     id: 1,
     character: "Pure Vanilla Cookie",
     text: "Привет! Ты читаешь это, верно? Ты очень милый друг, Милли.",
+    image: "https://cdn.poehali.dev/files/d99d212e-6e5a-4f72-9280-2012fd83f420.jpg"
   },
   {
     id: 2,
     character: "Shadow Milk Cookie",
     text: "Ты так же очень интересный собеседник, Миф клянётся левым пальцем.",
+    image: "https://cdn.poehali.dev/files/4042f699-ff22-44c8-847b-c25f58d97ab3.jpg"
   },
   {
     id: 3,
     character: "Pure Vanilla Cookie",
     text: "Я очень рад, что познакомился с тобой, дорогая. Ты действительно радуешь меня каждый день.",
+    image: "https://cdn.poehali.dev/files/26539e81-5c2a-4c9d-a939-bd7134e1d8d3.jpg"
   },
   {
     id: 4,
     character: "Shadow Milk Cookie",
     text: "Твоя улыбка освещает даже самые тёмные уголки королевства! Продолжай сиять!",
+    image: "https://cdn.poehali.dev/files/5d02f960-3473-4737-9af8-ed8921cd27e0.jpg"
   },
   {
     id: 5,
     character: "Pure Vanilla Cookie",
     text: "С тобой время летит незаметно. Каждый разговор - это маленькое волшебство.",
+    image: "https://cdn.poehali.dev/files/dde10a7a-a9ac-4552-b098-949e12a9cb30.jpg"
   },
   {
     id: 6,
     character: "Shadow Milk Cookie",
     text: "Знаешь, я не часто говорю такое, но ты особенная. Правда-правда!",
+    image: "https://cdn.poehali.dev/files/4042f699-ff22-44c8-847b-c25f58d97ab3.jpg"
   },
   {
     id: 7,
     character: "Pure Vanilla Cookie",
     text: "Твоя доброта и искренность вдохновляют меня быть лучше каждый день.",
+    image: "https://cdn.poehali.dev/files/d99d212e-6e5a-4f72-9280-2012fd83f420.jpg"
   },
   {
     id: 8,
     character: "Shadow Milk Cookie",
     text: "Месяц знакомства - это только начало нашей дружбы! Впереди много приключений!",
+    image: "https://cdn.poehali.dev/files/5d02f960-3473-4737-9af8-ed8921cd27e0.jpg"
   },
   {
     id: 9,
     character: "Pure Vanilla Cookie",
     text: "Спасибо, что ты есть. Ты делаешь этот мир немного добрее и светлее.",
+    image: "https://cdn.poehali.dev/files/26539e81-5c2a-4c9d-a939-bd7134e1d8d3.jpg"
   },
   {
     id: 10,
     character: "Shadow Milk Cookie",
     text: "Ты прошла весь путь! Горжусь тобой, дорогая подруга! 💜",
+    image: "https://cdn.poehali.dev/files/dde10a7a-a9ac-4552-b098-949e12a9cb30.jpg"
   }
 ];
 
@@ -112,10 +122,14 @@ export default function Index() {
       <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-300 to-orange-200 flex items-center justify-center p-4 animate-fade-in">
         <Card className="max-w-lg w-full bg-white/95 backdrop-blur-sm shadow-2xl border-4 border-pink-400 overflow-hidden animate-scale-in">
           <div className="relative">
-            <div className={`aspect-square bg-gradient-to-br ${isPureVanilla ? 'from-blue-200 to-purple-200' : 'from-purple-300 to-indigo-300'} flex items-center justify-center p-8`}>
-              <div className="w-full h-full bg-white/80 rounded-3xl flex flex-col items-center justify-center border-4 border-yellow-300 p-6 space-y-4">
-                <Icon name="Cookie" size={100} className={isPureVanilla ? 'text-blue-400' : 'text-purple-600'} />
-                <h3 className="text-2xl font-bold text-center font-montserrat" style={{ color: isPureVanilla ? '#9370DB' : '#6B46C1' }}>
+            <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
+              <img 
+                src={message.image} 
+                alt={message.character}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <h3 className="text-2xl font-bold text-center font-montserrat text-white drop-shadow-lg">
                   {message.character}
                 </h3>
               </div>
