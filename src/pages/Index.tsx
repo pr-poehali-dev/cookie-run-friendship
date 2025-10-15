@@ -38,31 +38,31 @@ const messages = [
     id: 6,
     character: "Shadow Milk Cookie",
     text: "Знаешь, я не часто говорю такое, но ты особенная. Правда-правда!",
-    image: "https://cdn.poehali.dev/files/4042f699-ff22-44c8-847b-c25f58d97ab3.jpg"
+    image: "https://cdn.poehali.dev/files/07503556-5b80-4490-9fd7-754d83a4e8b9.jpg"
   },
   {
     id: 7,
     character: "Pure Vanilla Cookie",
     text: "Твоя доброта и искренность вдохновляют меня быть лучше каждый день.",
-    image: "https://cdn.poehali.dev/files/d99d212e-6e5a-4f72-9280-2012fd83f420.jpg"
+    image: "https://cdn.poehali.dev/files/898cc998-a873-4c0f-be15-32d20d292c7c.jpg"
   },
   {
     id: 8,
     character: "Shadow Milk Cookie",
     text: "Месяц знакомства - это только начало нашей дружбы! Впереди много приключений!",
-    image: "https://cdn.poehali.dev/files/5d02f960-3473-4737-9af8-ed8921cd27e0.jpg"
+    image: "https://cdn.poehali.dev/files/067d0549-457c-4406-ba05-2339253fb06b.jpg"
   },
   {
     id: 9,
     character: "Pure Vanilla Cookie",
     text: "Спасибо, что ты есть. Ты делаешь этот мир немного добрее и светлее.",
-    image: "https://cdn.poehali.dev/files/26539e81-5c2a-4c9d-a939-bd7134e1d8d3.jpg"
+    image: "https://cdn.poehali.dev/files/ca6faa70-03eb-439e-a8a5-e049765be25e.jpg"
   },
   {
     id: 10,
     character: "Shadow Milk Cookie",
     text: "Ты прошла весь путь! Горжусь тобой, дорогая подруга! 💜",
-    image: "https://cdn.poehali.dev/files/dde10a7a-a9ac-4552-b098-949e12a9cb30.jpg"
+    image: "https://cdn.poehali.dev/files/1373cd0c-86c6-4c1b-8a42-cbf22c5df3a8.jpg"
   }
 ];
 
@@ -125,14 +125,9 @@ export default function Index() {
             <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
               <img 
                 src={message.image} 
-                alt={message.character}
+                alt="Cookie Run"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <h3 className="text-2xl font-bold text-center font-montserrat text-white drop-shadow-lg">
-                  {message.character}
-                </h3>
-              </div>
             </div>
             <div className="absolute top-4 right-4">
               <Button
