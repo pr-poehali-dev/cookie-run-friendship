@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
@@ -70,9 +70,44 @@ export default function Index() {
   const [openedCards, setOpenedCards] = useState<number[]>([]);
   const [currentMessage, setCurrentMessage] = useState<number | null>(null);
   const [showFinal, setShowFinal] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  
+  const bgMusicRef = useRef<HTMLAudioElement | null>(null);
+  const cardOpenSoundRef = useRef<HTMLAudioElement | null>(null);
+  const finalSoundRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    bgMusicRef.current = new Audio('https://cdn.pixabay.com/audio/2022/05/13/audio_2fe4d75f0c.mp3');
+    bgMusicRef.current.loop = true;
+    bgMusicRef.current.volume = 0.3;
+    
+    cardOpenSoundRef.current = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_12b0c7443c.mp3');
+    cardOpenSoundRef.current.volume = 0.5;
+    
+    finalSoundRef.current = new Audio('https://cdn.pixabay.com/audio/2022/03/24/audio_c6c0e31b59.mp3');
+    finalSoundRef.current.volume = 0.6;
+
+    return () => {
+      bgMusicRef.current?.pause();
+      cardOpenSoundRef.current?.pause();
+      finalSoundRef.current?.pause();
+    };
+  }, []);
+
+  const toggleMusic = () => {
+    if (bgMusicRef.current) {
+      if (isMusicPlaying) {
+        bgMusicRef.current.pause();
+      } else {
+        bgMusicRef.current.play().catch(() => {});
+      }
+      setIsMusicPlaying(!isMusicPlaying);
+    }
+  };
 
   const handleCardClick = (id: number) => {
     if (!openedCards.includes(id)) {
+      cardOpenSoundRef.current?.play().catch(() => {});
       setOpenedCards([...openedCards, id]);
       setCurrentMessage(id);
     }
@@ -81,6 +116,7 @@ export default function Index() {
   const handleCloseMessage = () => {
     setCurrentMessage(null);
     if (openedCards.length === 10) {
+      finalSoundRef.current?.play().catch(() => {});
       setShowFinal(true);
     }
   };
@@ -158,6 +194,16 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-br from-pink-300 via-purple-300 to-yellow-300 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 space-y-4 animate-fade-in">
+          <div className="flex justify-center mb-4">
+            <Button
+              onClick={toggleMusic}
+              className="rounded-full bg-white/80 hover:bg-white text-purple-600 shadow-lg"
+              size="lg"
+            >
+              <Icon name={isMusicPlaying ? "Volume2" : "VolumeX"} size={24} className="mr-2" />
+              {isMusicPlaying ? 'Музыка включена' : 'Включить музыку'}
+            </Button>
+          </div>
           <h1 
             className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 font-montserrat"
             style={{ 
