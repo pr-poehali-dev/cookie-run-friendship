@@ -37,7 +37,7 @@ const messages = [
   {
     id: 6,
     character: "Shadow Milk Cookie",
-    text: "Ты знала что...мурлыкать могут не только кошки? Теперь знаешь.",
+    text: "Ты знала, что... мурлыкать могут не только кошки? Теперь ты знаешь.",
     image: "https://cdn.poehali.dev/files/07503556-5b80-4490-9fd7-754d83a4e8b9.jpg"
   },
   {
